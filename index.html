@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html ng-app="calculatorApp">
+  <head>
+    <meta charset="utf-8">
+    <title>Live calculator</title>
+    <script type="text/javascript" src="https://code.angularjs.org/1.2.7/angular.min.js">
+    </script>
+    <script src="https://cdn.firebase.com/v0/firebase.js"></script>
+    <script src="https://cdn.firebase.com/libs/angularfire/0.5.0/angularfire.min.js"></script>
+    <script src="calculator.js"></script>
+  </head>
+  <body ng-controller="calculator">
+    <h1>example: enter 5 * 5 and press enter to see the magic happen </h1>
+    <input type="text" placeholder="enter the calucation here" ng-model="newCalculation" ng-keydown="doCalculation($event)">
+    <h1> {{ answer }} </h1>
+    <div id="logs">
+      <div class="log" ng-repeat="log in logs | reverse | limitTo: 10">
+        <span><b>{{ log.value }}</b></span><br />
+      </div>
+    </div>
+  </body>
+</html>
